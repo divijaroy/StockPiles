@@ -3,7 +3,7 @@
   if($con->connect_error)
 {
 	echo $con->connect_error;
-	die("Sorry");
+	die("sorry");
 }
 	$sql="SELECT * FROM category";
 	$result=$con->query($sql);
