@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+ -- phpMyAdmin SQL Dump
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
@@ -187,17 +187,17 @@ INSERT INTO `product` (`product_ID`, `product_Name`, `Quantity`, `product_Status
 
 DROP TABLE IF EXISTS `supplier`;
 CREATE TABLE IF NOT EXISTS `supplier` (
-  `sup_no` int(11) NOT NULL,
+  `sup_ID` int(11) NOT NULL,
   `name` varchar(16) NOT NULL,
   `phone` int(10) DEFAULT NULL,
-  PRIMARY KEY (`sup_no`)
+  PRIMARY KEY (`sup_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`sup_no`, `name`, `phone`) VALUES
+INSERT INTO `supplier` (`sup_ID`, `name`, `phone`) VALUES
 (1, 'ABC electronics', 999999),
 (2, 'RETro', 989898);
 COMMIT;
