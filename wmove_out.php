@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 $mysqli = new mysqli("localhost","root","","ims");
 
 if($mysqli->connect_error){
@@ -32,7 +32,7 @@ if($mysqli->connect_error){
 <div class="container"  >
 <form method="POST">
 <?php
-    $sql="SELECT product_ID,product_Name,product_desc,Quantity FROM product WHERE product_status='2'";
+    $sql="SELECT product_ID,product_Name,product_desc,Quantity,sup_ID FROM product WHERE product_status='2'";
     $result=$mysqli->query($sql);       
 ?>
  
@@ -43,6 +43,7 @@ if($mysqli->connect_error){
         <th>Product Name</th>
         <th>Product Description</th>
         <th>Quantity</th>
+        <th>Supplier ID</th>
       </tr>
     </thead>
     <tbody>
@@ -56,6 +57,7 @@ if($mysqli->connect_error){
         <td><?php echo $rows['product_Name'];?></td>
         <td><?php echo $rows['product_desc'];?></td>
         <td><?php echo $rows['Quantity'];?></td>
+        <td><?php echo $rows['sup_ID'];?></td>
       </tr>
       <?php
         }
