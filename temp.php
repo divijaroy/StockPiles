@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 
 $mysqli = new mysqli("localhost", "root", "", "ims");
@@ -24,7 +24,7 @@ echo "<tr><th>Column 1</th><th>Column 2</th></tr>";
 
 // Loop through each row in the result set and print the data in a table row
 while ($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row["sup_no"] . "</td><td>" . $row["name"] . "</td></tr>";
+    echo "<tr><td>" . $row["sup_ID"] . "</td><td>" . $row["name"] . "</td></tr>";
 }
 
 // Close the table
@@ -48,20 +48,34 @@ $servername = "localhost";
 	}
 
 // Retrieve the form data using the $_POST superglobal
+// if (isset($_POST['name']) && isset($_POST['id'])){
+//     $name = $_POST['name'];
+//     $id = $_POST['id'];
+//     $emp_no = $_POST['emp_no']
+//     $sql = "INSERT INTO supplier VALUES ( '$id','$name','939886','$emp_no')";
+
+//     if (mysqli_query($conn, $sql)) {
+//         echo "Thread created successfully";
+//     } else {
+//         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+//     }
+
+// }
+
+
+// Retrieve the form data using the $_POST superglobal
 if (isset($_POST['name']) && isset($_POST['id'])){
-    $name = $_POST['name'];
-    $id = $_POST['id'];
-    
-    $sql = "INSERT INTO supplier VALUES ( '$id','$name','939886')";
+  $name = $_POST['name'];
+  $id = $_POST['id'];
+  $emp_no = $_POST['emp_no']; // <-- Add the missing semicolon here
+  $sql = "INSERT INTO supplier VALUES ('$id', '$name', '939886', '$emp_no')";
 
-    if (mysqli_query($conn, $sql)) {
-        echo "Thread created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-
+  if (mysqli_query($conn, $sql)) {
+      echo "Thread created successfully";
+  } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
 }
-
 
 
 
@@ -133,8 +147,9 @@ input[type="submit"]:hover {
 		<input type="text" name="name" id="name" required><br><br>
 		<label for="id">ID:</label>
 		<input type="text" name="id" id="id" required><br><br>
+    <label for="emp_no">emp_ID:</label>
+    <input type="text" name="emp_no" id="emp_no" required><br><br>
 		<input type="submit" value="Add Supplier">
 	</form>
 </body>
 </html>
-
